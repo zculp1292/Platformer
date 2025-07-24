@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
     bool canJump = true;
-    bool canMove = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,11 +31,11 @@ public class Movement : MonoBehaviour
 
     void Move()
     {
-        if (right.IsPressed() && canMove)
+        if (right.IsPressed())
         {
             rb.AddRelativeForce(Vector3.right * moveSpeed * Time.fixedDeltaTime);
         }
-        if (left.IsPressed() && canMove)
+        if (left.IsPressed())
         {
             rb.AddRelativeForce(Vector3.left * moveSpeed * Time.fixedDeltaTime);
         }
@@ -46,10 +45,21 @@ public class Movement : MonoBehaviour
     {
         if (jump.IsPressed() && canJump)
         {
-            Debug.Log("JUMP");
-            canMove = false;
             canJump = false;
+            moveSpeed /= 2;
+
             rb.AddRelativeForce(Vector3.up * jumpStrength);
         }
+    }
+
+    public void ResetJump()
+    {
+        canJump = true;
+        moveSpeed *= 2;
+    }
+
+    public bool GetJump()
+    {
+        return canJump;
     }
 }

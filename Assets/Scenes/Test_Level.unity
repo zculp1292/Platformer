@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 1120254356}
   - component: {fileID: 1120254355}
   - component: {fileID: 1120254354}
+  - component: {fileID: 1120254358}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -529,11 +530,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120254358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120254353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c363975c6031541a7efd33bc870ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632100079
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2285e66561dade54ba0244c06c18b42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 100
+  jumpStrength: 350
   right:
     m_Name: Right
     m_Type: 0
@@ -716,6 +730,23 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: Left
+      m_Flags: 0
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b4dfdf97-04e5-4812-b2f2-6c2178e8807b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a6de4eb2-c52b-493b-8626-624f62331cf2
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
       m_Flags: 0
     m_Flags: 0
 --- !u!1660057539 &9223372036854775807
