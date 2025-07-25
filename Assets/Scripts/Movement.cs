@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpStrength = 100f;
+    [SerializeField] float jumpControlFactor = 4f;
     [SerializeField] InputAction right;
     [SerializeField] InputAction left;
     [SerializeField] InputAction jump;
@@ -46,7 +47,7 @@ public class Movement : MonoBehaviour
         if (jump.IsPressed() && canJump)
         {
             canJump = false;
-            moveSpeed /= 2;
+            moveSpeed /= jumpControlFactor;
 
             rb.AddRelativeForce(Vector3.up * jumpStrength);
         }
@@ -55,7 +56,7 @@ public class Movement : MonoBehaviour
     public void ResetJump()
     {
         canJump = true;
-        moveSpeed *= 2;
+        moveSpeed *= jumpControlFactor;
     }
 
     public bool GetJump()
